@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Bid Test</title>
+</head>
+<body>
+    <h1>Real-Time Auction WebSocket Test</h1>
+    <p>Auction ID: <input id="auctionId" value="1" /></p>
+    <button onclick="connect()">Connect WebSocket</button>
+    <button onclick="disconnect()">Disconnect</button>
+    <h2>Real-time bids:</h2>
+    <pre id="output"></pre>
+    <script>
+        let ws;
+        const output = document.getElementById('output');
+        function connect() {
+            const id = document.getElementById('auctionId').value;
+            ws = new WebSocket('ws://localhost:8081/ws/auctions/' + id);
+            ws.onopen = () => { output.textContent += 'Connected!\n'; };
+            ws.onmessage = (e) => {
+                const bid = JSON.parse(e.data);
+                output.textContent += 'New bid: $' + bid.amount + ' by ' + bid.bidder_id + '\n';
+            };
+            ws.onclose = () => { output.textContent += 'Disconnected\n'; };
+        }
+        function disconnect() {
+            if (ws) ws.close();
+        }
+    </script>
+</body>
+</html>
