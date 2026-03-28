@@ -2,8 +2,6 @@
 
 A **high-performance, distributed auction platform** built in Go, designed to handle **real-time bids at scale**. The system leverages WebSockets, Redis Pub/Sub, PostgreSQL, and Kubernetes to ensure low-latency bid propagation, high availability, and concurrency correctness.
 
----
-
 ## Role & Contributions
 As the lead developer, I:
 
@@ -13,7 +11,6 @@ As the lead developer, I:
 - Implemented autoscaling, readiness/liveness probes, and observability dashboards (Prometheus/Grafana) for safe canary rollouts.  
 - Followed cloud-native principles and CI/CD practices to deliver production-ready microservices.
 
----
 
 ## Features
 
@@ -24,7 +21,6 @@ As the lead developer, I:
 - **Background Worker** – Automatic auction expiry and notifications.  
 - **Concurrency Safety** – Event ordering, deduplication, and idempotent writes ensure data reliability.
 
----
 
 ## API Endpoints
 
@@ -36,7 +32,6 @@ As the lead developer, I:
 | GET    | `/api/v1/auctions/:id/bids` | List all bids for an auction |
 | WS     | `/ws/auctions/:id` | Real-time bid updates via WebSocket |
 
----
 
 ## Tech Stack
 
@@ -46,7 +41,6 @@ As the lead developer, I:
 - **Monitoring & Observability:** Prometheus metrics, Grafana dashboards  
 - **Best Practices:** Cloud-native design, autoscaling, idempotent processing, fault-tolerant distributed architecture
 
----
 
 ## Quick Start
 
@@ -112,9 +106,8 @@ ws.onmessage = (e) => console.log('New bid:', JSON.parse(e.data));
 
 ### Unit tests
 
-```bash
 go test ./...
-```
+
 
 ### Integration tests
 
@@ -124,14 +117,13 @@ powershell -File ./scripts/integration_test.ps1
 
 ## GitHub Setup
 
-```bash
 git init
 git add .
 git commit -m "Initial commit: Real-Time Auction System"
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/real-time-auction.git
 git push -u origin main
-```
+
 
 ## License
 
