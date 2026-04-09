@@ -132,7 +132,6 @@ git remote add origin https://github.com/YOUR_USERNAME/real-time-auction.git
 git push -u origin main
 
 ## System Design & Tradeoffs
-- Kafka chosen for high-throughput real-time message queue; ensures exactly-once delivery
 - Redis for deduplication → avoids DB writes for duplicates
 - PostgreSQL for persistent storage of bids and users
 - Python workers for simplicity; could be Go for higher performance
